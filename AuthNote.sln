@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthNote.Api", "AuthNote.Api\AuthNote.Api.csproj", "{76DA96EF-A657-40FE-958C-16C7AD4E1C92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthNote.Infrastructure", "AuthNote.Infrastructure\AuthNote.Infrastructure.csproj", "{D7C10CBF-F1F8-43FC-A62E-54DACDBAAB34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthNote.Domain", "AuthNote.Domain\AuthNote.Domain.csproj", "{229F451B-7AC9-4072-9A90-E1E29FC82EC6}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76DA96EF-A657-40FE-958C-16C7AD4E1C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76DA96EF-A657-40FE-958C-16C7AD4E1C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76DA96EF-A657-40FE-958C-16C7AD4E1C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76DA96EF-A657-40FE-958C-16C7AD4E1C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7C10CBF-F1F8-43FC-A62E-54DACDBAAB34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7C10CBF-F1F8-43FC-A62E-54DACDBAAB34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7C10CBF-F1F8-43FC-A62E-54DACDBAAB34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7C10CBF-F1F8-43FC-A62E-54DACDBAAB34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{229F451B-7AC9-4072-9A90-E1E29FC82EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229F451B-7AC9-4072-9A90-E1E29FC82EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229F451B-7AC9-4072-9A90-E1E29FC82EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229F451B-7AC9-4072-9A90-E1E29FC82EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F977682C-4D9E-4825-873B-5C50A67B8B70}
+	EndGlobalSection
+EndGlobal

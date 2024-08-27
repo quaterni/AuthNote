@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  authnote.api:
+    image: ${DOCKER_REGISTRY-}authnoteapi
+    build:
+      context: .
+      dockerfile: AuthNote.Api/Dockerfile
+    depends_on:
+     - authnote.db
+    ports:
+     - 31000:8080
+     - 31001:8081
+                   
+  authnote.db:
+    image: postgres:latest
+    container_name: authnote_db
+    environment:
+        - POSTGRES_DB=notes
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+    volumes:
+    - ./.containers/user-db:/var/lib/pstgresql/data
+    ports:
+     - 5433:5432   

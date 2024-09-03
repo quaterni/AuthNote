@@ -1,6 +1,5 @@
 using AuthNote.Api.Extensions;
 using AuthNote.Infrastructure;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,11 +20,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
     app.ApplyMigrations();
+    app.ApplyLocalIdentityMigrations();
     app.SeedDatabase();
 }
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

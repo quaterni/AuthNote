@@ -1,11 +1,6 @@
 ﻿using AuthNote.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthNote.Infrastructure.Data.Configurations
 {
@@ -14,6 +9,10 @@ namespace AuthNote.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<Note> builder)
         {
             builder.HasKey(note=> note.Id);
+
+            builder.Property(note=> note.Title).IsRequired();
+
+            builder.Property(note=> note.Content).IsRequired();
 
             builder.HasOne(note => note.User)
                 .WithMany(user => user.Notes);

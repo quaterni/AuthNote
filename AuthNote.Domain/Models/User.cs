@@ -6,24 +6,26 @@
         {
         }
 
-        protected User(string firstName, string email, Guid id)
+        protected User(string Username, string email, string identityId, Guid id)
         {
-            FirstName = firstName;
+            this.Username = Username;
             Email = email;
+            IdentityId = identityId;
             Id = id;
         }
 
-        public string FirstName { get; } = null!;
+        public string Username { get; } = null!;
 
         public string Email { get; } = null!;
 
+        public string IdentityId { get; }
         public ICollection<Note> Notes { get; } = new List<Note>();
 
         public Guid Id { get; }
 
-        public static User Create(string firstName, string email)
+        public static User Create(string username, string email, string identityId)
         {
-            return new User(firstName, email, Guid.NewGuid());
+            return new User(username, email, identityId, Guid.NewGuid());
         }
 
         public void AddNote(string title, string content) 

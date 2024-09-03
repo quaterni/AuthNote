@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace AuthNote.Infrastructure.AuthNote.Infrastructure.Data.Migrations
+namespace AuthNote.Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration

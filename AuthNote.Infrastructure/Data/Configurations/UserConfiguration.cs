@@ -17,7 +17,12 @@ namespace AuthNote.Infrastructure.Data.Configurations
 
             builder.HasIndex(user => user.Email).IsUnique();
 
-            builder.Property(user => user.FirstName);
+            builder.Property(user => user.Username);
+
+            builder.Property(user => user.IdentityId).IsRequired();
+
+            builder.HasIndex(user => user.IdentityId)
+                .IsUnique();
 
             builder.HasMany(user => user.Notes)
                 .WithOne(note=> note.User);

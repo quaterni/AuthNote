@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthNote.Api", "AuthNote.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthNote.Infrastructure", "AuthNote.Infrastructure\AuthNote.Infrastructure.csproj", "{D7C10CBF-F1F8-43FC-A62E-54DACDBAAB34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthNote.Domain", "AuthNote.Domain\AuthNote.Domain.csproj", "{229F451B-7AC9-4072-9A90-E1E29FC82EC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthNote.Domain", "AuthNote.Domain\AuthNote.Domain.csproj", "{229F451B-7AC9-4072-9A90-E1E29FC82EC6}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthNote.LocalIdentity", "AuthNote.LocalIdentity\AuthNote.LocalIdentity.csproj", "{CD36AB90-8C9E-4E5A-8B44-9279BAD77052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA0A79BE-6173-4C9C-912B-DD0BF943AEF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD36AB90-8C9E-4E5A-8B44-9279BAD77052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD36AB90-8C9E-4E5A-8B44-9279BAD77052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD36AB90-8C9E-4E5A-8B44-9279BAD77052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD36AB90-8C9E-4E5A-8B44-9279BAD77052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

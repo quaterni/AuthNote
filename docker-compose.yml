@@ -8,6 +8,7 @@ services:
       dockerfile: AuthNote.Api/Dockerfile
     depends_on:
      - authnote.db
+     - authnote.localIdentity
     ports:
      - 31000:8080
      - 31001:8081
@@ -22,4 +23,26 @@ services:
     volumes:
     - ./.containers/user-db:/var/lib/pstgresql/data
     ports:
-     - 5433:5432   
+     - 5433:5432  
+  authnote.localIdentity:
+    image: postgres:latest
+    container_name: authnote_local_identity
+    environment:
+        - POSTGRES_DB=identity_db
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+    volumes:
+    - ./.containers/local-identity-db:/var/lib/pstgresql/data
+    ports:
+     - 5434:5432  
+  # authnote.identity:
+  #   image: quay.io/keycloak/keycloak:latest
+  #   container_name: authnote_identity
+  #   command: start-dev
+  #   environment:
+  #   - KEYCLOAK_ADMIN=admin
+  #   - KEYCLOAK_ADMIN_PASSWORD=admin
+  #   volumes:
+  #   - ./.containers/identity:/opt/keycloak/data
+  #   ports:
+  #   - 18080:8080

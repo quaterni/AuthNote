@@ -1,14 +1,17 @@
-﻿using AuthNote.Domain.Data.Abstractions;
+﻿using AuthNote.Domain.Authentication;
+using AuthNote.Domain.Data.Abstractions;
+using AuthNote.Infrastructure.Authentication.LocalIdentity;
+using AuthNote.Infrastructure.Authentication.LocalIdentity.Configurations;
 using AuthNote.Infrastructure.Data;
 using AuthNote.Infrastructure.Data.Repositories;
+using AuthNote.LocalIdentity.Data;
+using AuthNote.LocalIdentity.Options;
+using AuthNote.LocalIdentity.Services;
+using AuthNote.LocalIdentity.Services.Abstractions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AuthNote.Infrastructure
 {
@@ -16,11 +19,42 @@ namespace AuthNote.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("ApplicationDatabase")));
+            services.AddDbContext<ApplicationDbContext>(
+                options => options
+                    .UseNpgsql(configuration.GetConnectionString("ApplicationDatabase"))
+                    .UseSnakeCaseNamingConvention());
 
             services.AddScoped<IUserRepository, UserRepository>();
 
+            AddLocalIdentity(services, configuration);
+
             return services;
+        }
+
+        public static void AddLocalIdentity(IServiceCollection services, IConfiguration configuration)
+        {
+            services.Configure<JwtOptions>(options => configuration.GetSection("LocalIdentityJwt").Bind(options));
+
+            services.AddDbContext<IdentityDbContext>(
+                options => options
+                    .UseNpgsql(configuration.GetConnectionString("IdentityDatabase"))
+                    .UseSnakeCaseNamingConvention());
+
+            services.AddTransient<IHashService, HashService>();
+            services.AddTransient<IJwtService, JwtService>();
+
+            services.AddScoped<UserService>();
+
+            services.AddScoped<IUserRegistrator, LocalIdentityUserRegistrator>();
+            services.AddScoped<ITokenAccessor, LocalIdentityTokenAccessor>();
+
+            services.ConfigureOptions<JwtBearerOptionsConfigurations>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer();
+
+            services.AddAuthorization();
+
         }
     }
 }

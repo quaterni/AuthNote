@@ -1,6 +1,7 @@
 ﻿using AuthNote.Domain.Authentication;
 using AuthNote.Domain.Data.Abstractions;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthNote.Api.Controllers.User
@@ -27,6 +28,7 @@ namespace AuthNote.Api.Controllers.User
         }
 
         [HttpGet]
+        [Authorize(Roles= Roles.Admin)]
         public async Task<ActionResult<ICollection<UserResponse>>> GetUsers()
         {
             var users = await _userRepository.GetUsers();

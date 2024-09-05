@@ -16,6 +16,11 @@ namespace AuthNote.Infrastructure.Data.Repositories
 
         public async Task Add(User user)
         {
+            foreach (var role in user.Roles)       
+            {
+                _context.Attach(role);
+            }
+
             _context.Add(user);
             await _context.SaveChangesAsync();
         }

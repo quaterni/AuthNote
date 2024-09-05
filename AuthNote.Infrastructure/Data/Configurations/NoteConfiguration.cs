@@ -8,6 +8,8 @@ namespace AuthNote.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Note> builder)
         {
+            builder.ToTable("notes");
+
             builder.HasKey(note=> note.Id);
 
             builder.Property(note=> note.Title).IsRequired();

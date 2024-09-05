@@ -2,6 +2,8 @@
 {
     public class User
     {
+        private readonly List<Role> _roles = new List<Role>();
+
         private User()
         {
         }
@@ -19,13 +21,19 @@
         public string Email { get; } = null!;
 
         public string IdentityId { get; }
+
         public ICollection<Note> Notes { get; } = new List<Note>();
+
+        public IReadOnlyCollection<Role> Roles => _roles;
 
         public Guid Id { get; }
 
         public static User Create(string username, string email, string identityId)
         {
-            return new User(username, email, identityId, Guid.NewGuid());
+            var user = new User(username, email, identityId, Guid.NewGuid());
+            user._roles.Add(Role.User);
+
+            return user;
         }
 
         public void AddNote(string title, string content) 
@@ -33,6 +41,11 @@
             var note = Note.Create(title, content, this);
 
             Notes.Add(note);
+        }
+
+        public void AddRole(Role role)
+        {
+            _roles.Add(role);
         }
     }
 

@@ -43,6 +43,11 @@
             Notes.Add(note);
         }
 
+        public void RemoveNote(Note note)
+        {
+            Notes.Remove(note); 
+        }
+
         public void AddRole(Role role)
         {
             _roles.Add(role);
